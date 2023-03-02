@@ -8,13 +8,10 @@
 SDL_Window* gWindow = NULL;
 SDL_Renderer* gRenderer = NULL;
 
-//Starts up SDL and creates window
 bool init();
 
-//Loads media
 bool loadMedia();
 
-//Frees media and shuts down SDL
 void close();
 
 Background gBG;
@@ -23,10 +20,8 @@ Asteroid gOriginAsteroid;
 
 bool init()
 {
-	//Initialization flag
 	bool success = true;
 
-	//Initialize SDL
 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
 	{
 		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
@@ -34,13 +29,11 @@ bool init()
 	}
 	else
 	{
-		//Set texture filtering to linear
 		if( !SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1" ) )
 		{
 			printf( "Warning: Linear texture filtering not enabled!" );
 		}
 
-		//Create window
 		gWindow = SDL_CreateWindow( "Asteroid Reborn", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( gWindow == NULL )
 		{
@@ -49,7 +42,6 @@ bool init()
 		}
 		else
 		{
-			//Create vsynced renderer for window
 			gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
 			if( gRenderer == NULL )
 			{
@@ -77,10 +69,8 @@ bool init()
 
 bool loadMedia()
 {
-	//Loading success flag
 	bool success = true;
 
-	//Load ship
 	if( !gShip.loadFromFile(gRenderer, "Resources/Ship.png" ) )
 	{
 		printf( "Failed to load ship texture!\n" );
@@ -89,7 +79,6 @@ bool loadMedia()
 
 	else gShip.SetPos();
 
-	//Load background texture
 	if( !gBG.loadFromFile(gRenderer, "Resources/background.png" ) )
 	{
 		printf( "Failed to load background texture!\n" );
@@ -101,23 +90,19 @@ bool loadMedia()
 
 void close()
 {
-	//Free loaded images
 	gShip.free();
 
-	//Destroy window
 	SDL_DestroyRenderer( gRenderer );
 	SDL_DestroyWindow( gWindow );
 	gWindow = NULL;
 	gRenderer = NULL;
 
-	//Quit SDL subsystems
 	IMG_Quit();
 	SDL_Quit();
 }
 
 int main( int argc, char* args[] )
 {
-	//Start up SDL and create window
 	if( !init() )
 	{
 		printf( "Failed to initialize!\n" );
@@ -141,7 +126,6 @@ int main( int argc, char* args[] )
 
 			SDL_RendererFlip flipType = SDL_FLIP_NONE;
 
-			//While application is running
 			while( !quit )
 			{
 				while( SDL_PollEvent( &e ) != 0 )
@@ -156,11 +140,9 @@ int main( int argc, char* args[] )
 				gShip.MoveForward();
 				gShip.Rotate();
 
-				//Clear screen
 				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
 				SDL_RenderClear( gRenderer );
 
-				//Render BG
 				gBG.spinBackground(0.1);
                 gBG.render(gRenderer, gBG.getX(), gBG.getY(), NULL, gBG.getAngle(), &BGcenter, flipType);
 				//Render ship
@@ -192,13 +174,12 @@ int main( int argc, char* args[] )
                     count1s -= 1000;
                 }
                 gOriginAsteroid.moveAsteroid(gRenderer);
-				//Update screen
+
 				SDL_RenderPresent( gRenderer );
 			}
 		}
 	}
 
-	//Free resources and close SDL
 	close();
 
 	return 0;
