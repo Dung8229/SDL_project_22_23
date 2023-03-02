@@ -1,0 +1,48 @@
+# depslib dependency file v1.0
+1677767387 source:c:\users\admin\desktop\project_sdl_game\asteroid.cpp
+	"Asteroid.h"
+
+1677767379 c:\users\admin\desktop\project_sdl_game\asteroid.h
+	"BaseObject.h"
+	<cstdlib>
+
+1677767406 c:\users\admin\desktop\project_sdl_game\baseobject.h
+	"CommonFunc.h"
+
+1677767419 c:\users\admin\desktop\project_sdl_game\commonfunc.h
+	<SDL.h>
+	<SDL_image.h>
+	<stdio.h>
+	<string>
+	<cmath>
+	<vector>
+
+1677767391 source:c:\users\admin\desktop\project_sdl_game\background.cpp
+	"Background.h"
+
+1677767397 c:\users\admin\desktop\project_sdl_game\background.h
+	"BaseObject.h"
+
+1677767401 source:c:\users\admin\desktop\project_sdl_game\baseobject.cpp
+	"BaseObject.h"
+
+1677767411 source:c:\users\admin\desktop\project_sdl_game\bullet.cpp
+	"Bullet.h"
+
+1677767415 c:\users\admin\desktop\project_sdl_game\bullet.h
+	"BaseObject.h"
+
+1677767423 source:c:\users\admin\desktop\project_sdl_game\main.cpp
+	"CommonFunc.h"
+	"BaseObject.h"
+	"Ship.h"
+	"Background.h"
+	"Asteroid.h"
+
+1677767577 c:\users\admin\desktop\project_sdl_game\ship.h
+	"BaseObject.h"
+	"Bullet.h"
+
+1677767581 source:c:\users\admin\desktop\project_sdl_game\ship.cpp
+	"Ship.h"
+
