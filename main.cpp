@@ -143,7 +143,7 @@ int main( int argc, char* args[] )
 				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
 				SDL_RenderClear( gRenderer );
 
-				gBG.spinBackground(0.1);
+				gBG.spinBackground(0.05);
                 gBG.render(gRenderer, gBG.getX(), gBG.getY(), NULL, gBG.getAngle(), &BGcenter, flipType);
 				//Render ship
 				gShip.render(gRenderer, gShip.getX(), gShip.getY(), NULL, gShip.getAngle(), NULL, flipType );
@@ -168,7 +168,7 @@ int main( int argc, char* args[] )
                     }
                 }
                 //Render asteroid
-                count1s+=3;
+                count1s+=1;
                 if (count1s >= 1000) {
                     gOriginAsteroid.addAsteroid(gRenderer);
                     count1s -= 1000;

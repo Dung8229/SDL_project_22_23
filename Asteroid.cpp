@@ -55,34 +55,34 @@ void Asteroid::addAsteroid(SDL_Renderer* gRenderer) {
     switch (rand() % 2)
     {
         case 0:
-            newAsteroid->setStartPos(rand() % SCREEN_WIDTH, -100, rand() % 360);
+            newAsteroid->setStartPos(rand() % SCREEN_WIDTH, -230, rand() % 360);
             break;
         case 1:
-            newAsteroid->setStartPos(-100, rand() % SCREEN_HEIGHT, rand() % 360);
+            newAsteroid->setStartPos(-230, rand() % SCREEN_HEIGHT, rand() % 360);
             break;
     }
     switch (rand() % 4)
     {
         case 0:
-            newAsteroid->setDirection(getRandDirect(), getRandDirect());
+            newAsteroid->setDirection(getRandDirect(20), getRandDirect(20));
             break;
         case 1:
-            newAsteroid->setDirection(-getRandDirect(), getRandDirect());
+            newAsteroid->setDirection(-getRandDirect(20), getRandDirect(20));
             break;
         case 2:
-            newAsteroid->setDirection(getRandDirect(), -getRandDirect());
+            newAsteroid->setDirection(getRandDirect(20), -getRandDirect(20));
             break;
         case 3:
-            newAsteroid->setDirection(-getRandDirect(), -getRandDirect());
+            newAsteroid->setDirection(-getRandDirect(20), -getRandDirect(20));
             break;
     }
     switch (rand() % 2)
     {
         case 0:
-            newAsteroid->setRotation(getRandDirect());
+            newAsteroid->setRotation(getRandDirect(20));
             break;
         case 1:
-            newAsteroid->setRotation(-getRandDirect());
+            newAsteroid->setRotation(-getRandDirect(20));
             break;
     }
     pAsteroidList.push_back(newAsteroid);
@@ -103,16 +103,17 @@ void Asteroid::moveAsteroid(SDL_Renderer* gRenderer) {
             {
                 pAsteroidList.erase(pAsteroidList.begin() + i);
             }
-            if (pAsteroidList[i]->x < -100 ) pAsteroidList[i]->x = 800;
-            if (pAsteroidList[i]->x > 800) pAsteroidList[i]->x = -100;
-            if (pAsteroidList[i]->y < -100 ) pAsteroidList[i]->y = 600;
-            if (pAsteroidList[i]->y > 600) pAsteroidList[i]->y = -100;
+            if (pAsteroidList[i]->x < -230 ) pAsteroidList[i]->x = 800;
+            if (pAsteroidList[i]->x > 800) pAsteroidList[i]->x = -230;
+            if (pAsteroidList[i]->y < -230 ) pAsteroidList[i]->y = 600;
+            if (pAsteroidList[i]->y > 600) pAsteroidList[i]->y = -230;
         }
     }
 }
 
-double getRandDirect() {
-    double randDirect = (rand() % 20) / 10.0;
-    if (randDirect < 0.5) randDirect++;
+double getRandDirect(double divide) {
+    double randDirect = (rand() % 10);
+    if (randDirect < 5) randDirect += 5;
+    randDirect /= divide;
     return randDirect;
 }

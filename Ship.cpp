@@ -21,12 +21,12 @@ Ship::~Ship() {
 
 void Ship::MoveForward() {
     if (SpeedUp) {
-        dxShip = SDL_cos(angle * 0.017453) * 2;
-        dyShip = SDL_sin(angle * 0.017453) * 2;
+        dxShip = SDL_cos(angle * 0.017453);
+        dyShip = SDL_sin(angle * 0.017453);
     }
     else {
-        dxShip *= 0.99;
-        dyShip *= 0.99;
+        dxShip *= 0.994;
+        dyShip *= 0.994;
     }
     x += dxShip;
     y += dyShip;
@@ -37,10 +37,10 @@ void Ship::MoveForward() {
 }
 
 void Ship::Rotate() {
-    if (turnLeft) dBeta = -4;
-    else if (turnRight) dBeta = 4;
+    if (turnLeft) dBeta = -1.5;
+    else if (turnRight) dBeta = 1.5;
     else {
-        dBeta *= 0.97;
+        dBeta *= 0.985;
     }
     angle += dBeta;
 }

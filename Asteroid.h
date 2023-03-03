@@ -4,7 +4,7 @@
 #include "BaseObject.h"
 #include <cstdlib>
 
-double getRandDirect();
+double getRandDirect(double divide);
 
 class Asteroid : public BaseObject {
 private:
