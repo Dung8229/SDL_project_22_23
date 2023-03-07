@@ -25,8 +25,8 @@ void Ship::MoveForward() {
         dyShip = SDL_sin(angle * 0.017453);
     }
     else {
-        dxShip *= 0.994;
-        dyShip *= 0.994;
+        dxShip *= 0.996;
+        dyShip *= 0.996;
     }
     x += dxShip;
     y += dyShip;
@@ -34,20 +34,21 @@ void Ship::MoveForward() {
     if (x > 800) x = -mWidth;
     if (y < -mHeight ) y = 600;
     if (y > 600) y = -mHeight;
+    rect.x = x;
+    rect.y = y;
 }
 
 void Ship::Rotate() {
-    if (turnLeft) dBeta = -1.5;
-    else if (turnRight) dBeta = 1.5;
+    if (turnLeft) dBeta = -1.3;
+    else if (turnRight) dBeta = 1.3;
     else {
         dBeta *= 0.985;
     }
     angle += dBeta;
 }
 
-void Ship::SetPos() {
-    mWidth /= 6;
-    mHeight /= 6;
+void Ship::SetPos()
+{
     x = ( 800 - mWidth ) / 2;
     y = ( 600 - mHeight ) / 2;
 }
@@ -74,9 +75,32 @@ void Ship::HandleKeyboard(SDL_Renderer* gRenderer, SDL_Event e) {
                 bullet* newBullet = new bullet();
                 newBullet->loadFromFile(gRenderer, "Resources/Bullet.png");
                 newBullet->setStartPos(x, y + 8, angle);
-                newBullet->setRect(x, y);
                 pBulletList.push_back(newBullet);
             }
+            /*case SDLK_9:
+            //If there is no music playing
+            if( Mix_PlayingMusic() == 0 )
+            {
+                //Play the music
+                Mix_PlayMusic( gMusic, -1 );
+            }
+            //If music is being played
+            else
+            {
+                //If the music is paused
+                if( Mix_PausedMusic() == 1 )
+                {
+                    //Resume the music
+                    Mix_ResumeMusic();
+                }
+                //If the music is playing
+                else
+                {
+                    //Pause the music
+                    Mix_PauseMusic();
+                }
+            }
+            break;*/
         }
     }
     else if( e.type == SDL_KEYUP && e.key.repeat == 0)

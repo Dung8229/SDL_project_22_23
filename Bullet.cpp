@@ -4,11 +4,6 @@ bullet::bullet() {
     x = 0;
     y = 0;
     angle = 0;
-    rect.x = x;
-    rect.y = y;
-    rect.w = mWidth;
-    rect.h = mHeight;
-    moving = true;
     life = 1;
 }
 
@@ -16,24 +11,14 @@ bullet::~bullet() {
     free();
 }
 
-void bullet::setRect(double _x, double _y) {
-    rect.x = _x;
-    rect.y = _y;
-}
-
-void bullet::setMove(bool state) {
-    moving = state;
-}
-
-bool bullet::isMoving() {
-    return moving;
-}
-void bullet::move(int xBorder, int yBorder) {
-    x += SDL_cos(angle * 0.017453) * 4;
-    y += SDL_sin(angle * 0.017453) * 4;
-    if (x > xBorder || x < 0 || y > yBorder || y < 0) {
-        moving = false;
+void bullet::move() {
+    x += SDL_cos(angle * 0.017453) * 2;
+    y += SDL_sin(angle * 0.017453) * 2;
+    if (x > 800 || x < -10 || y > 600 || y < -10) {
+        life = 0;
     }
+    rect.x = x;
+    rect.y = y;
 }
 
 double bullet::getX() {

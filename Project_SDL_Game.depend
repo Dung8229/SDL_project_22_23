@@ -1,38 +1,39 @@
 # depslib dependency file v1.0
-1677815188 source:c:\users\admin\desktop\project_sdl_game\asteroid.cpp
+1678158785 source:c:\users\admin\desktop\project_sdl_game\asteroid.cpp
 	"Asteroid.h"
 
-1677815075 c:\users\admin\desktop\project_sdl_game\asteroid.h
+1678159093 c:\users\admin\desktop\project_sdl_game\asteroid.h
 	"BaseObject.h"
 	<cstdlib>
 
-1677769615 c:\users\admin\desktop\project_sdl_game\baseobject.h
+1678024957 c:\users\admin\desktop\project_sdl_game\baseobject.h
 	"CommonFunc.h"
 
-1677813598 c:\users\admin\desktop\project_sdl_game\commonfunc.h
+1678199395 c:\users\admin\desktop\project_sdl_game\commonfunc.h
 	<SDL.h>
 	<SDL_image.h>
+	<SDL_mixer.h>
 	<stdio.h>
 	<string>
 	<cmath>
 	<vector>
 
-1677767391 source:c:\users\admin\desktop\project_sdl_game\background.cpp
+1678025997 source:c:\users\admin\desktop\project_sdl_game\background.cpp
 	"Background.h"
 
 1677767397 c:\users\admin\desktop\project_sdl_game\background.h
 	"BaseObject.h"
 
-1677769561 source:c:\users\admin\desktop\project_sdl_game\baseobject.cpp
+1678024957 source:c:\users\admin\desktop\project_sdl_game\baseobject.cpp
 	"BaseObject.h"
 
-1677767411 source:c:\users\admin\desktop\project_sdl_game\bullet.cpp
+1678075408 source:c:\users\admin\desktop\project_sdl_game\bullet.cpp
 	"Bullet.h"
 
-1677767415 c:\users\admin\desktop\project_sdl_game\bullet.h
+1678030997 c:\users\admin\desktop\project_sdl_game\bullet.h
 	"BaseObject.h"
 
-1677814002 source:c:\users\admin\desktop\project_sdl_game\main.cpp
+1678200022 source:c:\users\admin\desktop\project_sdl_game\main.cpp
 	"CommonFunc.h"
 	"BaseObject.h"
 	"Ship.h"
@@ -43,6 +44,6 @@
 	"BaseObject.h"
 	"Bullet.h"
 
-1677814031 source:c:\users\admin\desktop\project_sdl_game\ship.cpp
+1678200140 source:c:\users\admin\desktop\project_sdl_game\ship.cpp
 	"Ship.h"
 
