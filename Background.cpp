@@ -6,6 +6,9 @@ Background::Background() {
     center.x = 1080;
     center.y = 1080;
     angle = 0;
+    life = 1;
+    rect.w = 0;
+    rect.h = 0;
 }
 
 Background::~Background() {

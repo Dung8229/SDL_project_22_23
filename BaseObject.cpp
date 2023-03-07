@@ -37,6 +37,8 @@ bool BaseObject::loadFromFile(SDL_Renderer* gRenderer, std::string path)
 		{
 			mWidth = loadedSurface->w;
 			mHeight = loadedSurface->h;
+			rect.w = mWidth;
+			rect.h = mHeight;
 		}
 
 		SDL_FreeSurface( loadedSurface );
@@ -93,4 +95,19 @@ int BaseObject::getWidth()
 int BaseObject::getHeight()
 {
 	return mHeight;
+}
+
+int BaseObject::getLife()
+{
+	return life;
+}
+
+void BaseObject::setLife(int num)
+{
+    life = num;
+}
+
+SDL_Rect BaseObject::getRect()
+{
+    return rect;
 }
